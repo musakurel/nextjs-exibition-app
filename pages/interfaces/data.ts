@@ -1,0 +1,30 @@
+export default interface Data {
+  id: number;
+  api_model: string;
+  api_link: string;
+  title: string;
+  is_featured: boolean;
+  description: string;
+  short_description?: any;
+  web_url: string;
+  image_url: string;
+  type: string;
+  status: string;
+  aic_start_at: string;
+  aic_end_at: string;
+  date_display?: any;
+  department_display: string;
+  gallery_id: number;
+  gallery_title?: any;
+  artwork_ids: any[];
+  artwork_titles: any[];
+  artist_ids: any[];
+  site_ids: any[];
+  image_id?: any;
+  alt_image_ids: any[];
+  document_ids: any[];
+  last_updated_source: Date;
+  last_updated: Date;
+  data:any[];
+  timestamp: Date;
+}

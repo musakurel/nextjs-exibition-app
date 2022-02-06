@@ -1,0 +1,23 @@
+.header{
+    color: #4f46e5b3;
+    }
+
+
+
+
+  .title {
+    margin: 0;
+    line-height: 1.15;
+    font-size: 4rem;
+  }
+  
+  .title,
+  .description {
+    text-align: center;
+  }
+
+  .description {
+    margin: 3rem 0;
+    line-height: 1.5;
+    font-size: 1.5rem;
+  }
