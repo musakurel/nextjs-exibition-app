@@ -25,6 +25,5 @@ export default interface Data {
   document_ids: any[];
   last_updated_source: Date;
   last_updated: Date;
-  data:any[];
   timestamp: Date;
 }

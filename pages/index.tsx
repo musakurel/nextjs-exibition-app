@@ -1,3 +1,4 @@
+/* eslint-disable react/function-component-definition */
 import React, { useState } from 'react';
 import type { GetServerSideProps, NextPage } from 'next';
 import Head from 'next/head';
@@ -6,6 +7,9 @@ import ExibitionList from './components/ExibitionList';
 import Header from './components/Header';
 import DataInterface from './interfaces/data';
 
+interface Props {
+  data: DataInterface;
+}
 export const getServerSideProps: GetServerSideProps = async () => {
   const res = await fetch(
     'https://api.artic.edu/api/v1/exhibitions?page=1&limit=8',
@@ -20,9 +24,8 @@ export const getServerSideProps: GetServerSideProps = async () => {
   };
 };
 
-const Home: NextPage<DataInterface> = ({ data }: DataInterface) => {
-  const [exibitions, setExibitions] = useState(data);
-
+const Home: NextPage<Props> = ({ data }:Props) => {
+  const [exibitions, setExibitions] = useState<Props | any>(data);
   const getMore = async () => {
     // We can get next page with this simple function
     const res = await fetch(
@@ -33,7 +36,7 @@ const Home: NextPage<DataInterface> = ({ data }: DataInterface) => {
     const datas = await res.json();
     const newExibitions = datas.data;
     // We destructured current items and concatenate them with new items
-    setExibitions((items) => [...items, ...newExibitions]);
+    setExibitions((items:any) => [...items, ...newExibitions]);
   };
 
   return (
@@ -46,7 +49,7 @@ const Home: NextPage<DataInterface> = ({ data }: DataInterface) => {
 
       <main className={styles.main}>
         <Header />
-        <ExibitionList exibitions={exibitions} getMore={getMore} />
+        <ExibitionList getMore={getMore} exibitions={exibitions} />
       </main>
     </div>
   );
